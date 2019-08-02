@@ -96,15 +96,18 @@ def getKafkaMessagesV2(topic, kafka_ip):
                              api_version=(0, 10, 1))
     consumer.subscribe([topic])
     print('after consumer')
+    print(consumer)
     for msg in consumer:
         print('inside for')
-        print(msg)
+        print(msg[6])
 
+    
 #sendToTopic()
 #getKafkaMessages('image-detection-topic')
-getKafkaMessagesV2('image-detection-topic', '192.168.1.112:9092')
+getKafkaMessagesV2('image-detection-topic', '10.100.14.107:9092')
 #getKafkaMessagesV2('test', '172.17.0.3:9092')
 
 #bin/kafka-console-consumer --zookeeper localhost:2181 --topic kafkatest --from-beginning
 #bin/kafka-console-consumer --zookeeper localhost:2181 /kafka --topic kafkatest --from-beginning
 
+#kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-topic --from-beginning
